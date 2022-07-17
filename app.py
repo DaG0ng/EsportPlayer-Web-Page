@@ -6,24 +6,27 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 import numpy as np
 
+# Print out the title of the WebPage
 st.title("If You Want to be an Esports Player")
 
+# @st.cache is a really powerful code which will load the data to the cache,
+# It will save a lot of time if used before loading data for automated rerun
 @st.cache
 def get_data(name):
     if name == 'market':
-        return pd.read_csv("https://raw.githubusercontent.com/Xiao-Wang-UCSD/EsportPlayer/master/data/market-chart-data.csv")
+        return pd.read_csv("data/market-chart-data.csv")
     if name == 'pie':
-        return pd.read_csv("https://raw.githubusercontent.com/Xiao-Wang-UCSD/EsportPlayer/master/data/pie-chart-data.csv")
+        return pd.read_csv("data/pie-chart-data.csv")
     if name == 'line':
-        return pd.read_csv("https://raw.githubusercontent.com/Xiao-Wang-UCSD/EsportPlayer/master/data/line-chart-data.csv")
+        return pd.read_csv("data/line-chart-data.csv")
     if name == 'radar':
-        return pd.read_csv("https://raw.githubusercontent.com/Xiao-Wang-UCSD/EsportPlayer/master/data/radar-chart-data.csv")
+        return pd.read_csv("data/radar-chart-data.csv")
     if name == 'prize':
-        return pd.read_csv("https://raw.githubusercontent.com/Xiao-Wang-UCSD/EsportPlayer/master/data/prize-chart-data.csv")
+        return pd.read_csv("data/prize-chart-data.csv")
     if name == 'full':
-        return pd.read_csv("https://raw.githubusercontent.com/Xiao-Wang-UCSD/EsportPlayer/master/data/full-chart-data.csv")
+        return pd.read_csv("data/full-chart-data.csv")
 
-# Config
+# Config the title text
 title_config = {
         'y':0.9,
         'x':0.5,
@@ -33,9 +36,11 @@ title_config = {
 
 
 # Show the full dataframe
+# st.checkbox is a button control boolean value
 raw_data_button = st.checkbox('Show Raw Data')
 show=st.checkbox('Show Script')
 full_df = get_data('full')
+# This is the way to control showing invisible content or not
 if raw_data_button:
     st.header("Overview")
     st.write(full_df)

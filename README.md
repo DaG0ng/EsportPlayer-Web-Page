@@ -6,5 +6,5 @@ Web Page Link generated through heroku:
 https://stormy-badlands-71873.herokuapp.com/
 
 Quick Tutorial for streamlit:
-See documentation [here](Streamlit and Plotly Tutorial.pdf)
+See documentation [here](Streamlit_and_Plotly_Tutorial.pdf)
 
